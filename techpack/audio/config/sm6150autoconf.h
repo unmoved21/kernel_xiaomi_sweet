@@ -63,3 +63,22 @@
 #define CONFIG_SND_SMARTPA_AW882XX 1
 #define CONFIG_SND_SOC_AWINIC_AW882XX 1
 #define CONFIG_SND_SOC_FOR_ULTRASOUND_PATH 1
+
+#ifdef CONFIG_MACH_XIAOMI_COURBET
+#include "xiaomi/courbetconf.h"
+#endif
+#ifdef CONFIG_MACH_XIAOMI_DAVINCI
+#include "xiaomi/davinciconf.h"
+#endif
+#ifdef CONFIG_MACH_XIAOMI_PHOENIX
+#include "xiaomi/phoenixconf.h"
+#endif
+#ifdef CONFIG_MACH_XIAOMI_SWEET
+#include "xiaomi/sweetconf.h"
+#endif
+#ifdef CONFIG_MACH_XIAOMI_TOCO
+#include "xiaomi/tococonf.h"
+#endif
+#ifdef CONFIG_MACH_XIAOMI_TUCANA
+#include "xiaomi/tucanaconf.h"
+#endif
