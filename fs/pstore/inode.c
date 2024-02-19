@@ -478,7 +478,7 @@ static int pstore_fill_super(struct super_block *sb, void *data, int silent)
 
 	inode = pstore_get_inode(sb);
 	if (inode) {
-		inode->i_mode = S_IFDIR | 0750;
+		inode->i_mode = S_IFDIR | 0755;
 		inode->i_op = &pstore_dir_inode_operations;
 		inode->i_fop = &simple_dir_operations;
 		inc_nlink(inode);
@@ -524,8 +524,10 @@ static int __init init_pstore_fs(void)
 		goto out;
 
 	err = register_filesystem(&pstore_fs_type);
-	if (err < 0)
+	if (err < 0) {
 		sysfs_remove_mount_point(fs_kobj, "pstore");
+		goto out;
+	}
 
 #ifdef CONFIG_PSTORE_LAST_KMSG
 	last_kmsg_entry = proc_create_data("last_kmsg", S_IFREG | S_IRUGO,
